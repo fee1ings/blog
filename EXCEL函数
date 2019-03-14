@@ -1,0 +1,27 @@
+按简称找全称							
+
+							
+							
+1.VLOOKUP							
+	1.通配符	"*"&A5&"*"					
+	2.VLOOKUP查找	VLOOKUP("*"&A5&"*",$E$5:$E$10,1,0)					
+				公司全称	1-第一列，0-精确查找		
+							
+	要求：字符连在一起，且没有重复						
+							
+2.LOOKUP							
+	FIND(A5,$E$5:$E$10)						
+	LOOKUP(1,0/FIND(A5,$E$5:$E$10),$E$5:$E$10)						
+							
+3.MATCH	MATCH("*"&A5&"*",$E$5:$E$10,0)						
+							
+							
+4.OFFSET	OFFSET($E$4,MATCH("*"&A5&"*",$E$5:$E$10,0),0)						
+	返回什么的标题栏						
+							
+5.INDEX	INDEX($E$5:$E$10,MATCH("*"&A5&"*",$E$5:$E$10,0),0)						
+	返回什么的范围						
+							
+6.INDIRECT	INDIRECT("E"&MATCH("*"&A5&"*",$E$5:$E$10,0)+4,1)						
+	"E"列从0开始数	match的范围+4		true,1			
+				false,0			
